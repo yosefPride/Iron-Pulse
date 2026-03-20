@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout plan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="#" class="logo">
+            Iron-
+            <span>Pulse</span>
+        </a>
+
+        <button class="ham-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="off-screen-menu" id="site-nav">
+            <ul>
+                <li><a class="current-page" href="#">Home</a></li>
+                <li><a href="#">Classes</a></li>
+                <li><a href="#">Memberships</a></li>
+                <li><a href="#">Trainers</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+
+        <section class="hero">
+            <div class="hero-shadow"></div>
+            <div class="hero-container">
+                <div class="text-box">
+                    <h1>Train Hard. Get Strong. Feel Unstoppable.</h1>
+                    <p>Build strength, boost endurance, and stay consistent with expert coaching, high-energy classes, and a gym community that pushes you forward.</p>
+                    <a class="btn" href="#">Start Your Membership</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="classes">
+            <div class="classes-container">
+                <h2>Our Classes</h2>
+                <div class="classes-grid">
+                    <div class="class-box class-box-1"><span>Strength Training</span></div>
+                    <div class="class-box class-box-2"><span>HIIT Conditioning</span></div>
+                    <div class="class-box class-box-3"><span>Boxing Basics</span></div>
+                    <div class="class-box class-box-4"><span>Core Power</span></div>
+                    <div class="class-box class-box-5"><span>Mobility Flow</span></div>
+                    <div class="class-box class-box-6"><span>Recovery Zone</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="memberships">
+            <div class="memberships-container">
+                <h2>Membership Plans</h2>
+                <div class="membership-cards">
+                    <article class="card">
+                        <i class="fa-solid fa-dumbbell plan-icon" aria-hidden="true"></i>
+                        <h3>Starter Plan</h3>
+                        <ul>
+                            <li>Gym floor access</li>
+                            <li>Two group classes per week</li>
+                            <li>Locker room access</li>
+                        </ul>
+                        <p class="price">$29/mo</p>
+                        <a href="#" class="plan-btn">Select</a>
+                    </article>
+
+                    <article class="card recommended">
+                        <i class="fa-solid fa-bolt plan-icon" aria-hidden="true"></i>
+                        <h3>Performance Plan</h3>
+                        <ul>
+                            <li>Unlimited gym access</li>
+                            <li>Unlimited classes and HIIT sessions</li>
+                            <li>One coaching check-in every month</li>
+                        </ul>
+                        <p class="price">$59/mo</p>
+                        <a href="#" class="plan-btn">Select</a>
+                    </article>
+
+                    <article class="card">
+                        <i class="fa-solid fa-crown plan-icon" aria-hidden="true"></i>
+                        <h3>Elite Plan</h3>
+                        <ul>
+                            <li>24/7 club access</li>
+                            <li>Unlimited classes and recovery sessions</li>
+                            <li>Weekly personal training session</li>
+                        </ul>
+                        <p class="price">$99/mo</p>
+                        <a href="#" class="plan-btn">Select</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div></div>
+    </footer>
+
+    <script>
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+
+        hamMenu.addEventListener('click', () => {
+            const isActive = hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+            hamMenu.setAttribute('aria-expanded', String(isActive));
+            hamMenu.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
+        });
+    </script>
+</body>
+</html>
