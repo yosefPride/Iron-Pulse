@@ -18,6 +18,7 @@ A responsive gym website landing page built with HTML and CSS.
 ## How To Use
 
 Open `index.html` in a browser to view the project.
+It'll be live soon. And then there'll be a link.
 
 ## Notes
 
