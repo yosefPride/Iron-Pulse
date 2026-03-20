@@ -333,57 +333,101 @@ body {
     padding: 1.25rem;
     border-radius: 1.25rem;
     overflow: hidden;
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/hero.jpg');
-    background-size: cover;
-    background-position: center;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+    isolation: isolate;
 }
 
 .class-box-1 {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/strength-training.jpg');
+    --class-image: url('images/strength-training.jpg');
 }
 
 .class-box-2 {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/HIIT-conditioning.jpg');
+    --class-image: url('images/HIIT-conditioning.jpg');
 }
 
 .class-box-3 {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/boxing-basics.jpg');
+    --class-image: url('images/boxing-basics.jpg');
 }
 
 .class-box-4 {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/core-power.jpg');
+    --class-image: url('images/core-power.jpg');
 }
 
 .class-box-5 {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/mobility-flow.jpg');
+    --class-image: url('images/mobility-flow.jpg');
 }
 
 .class-box-6 {
-    background-image:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
-        url('images/recovery-zone.jpg');
+    --class-image: url('images/recovery-zone.jpg');
+}
+
+.class-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--class-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.12);
+    transition: transform 0.35s ease;
+    z-index: -2;
+}
+
+.class-box::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 45%;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    z-index: -1;
 }
 
 .class-box span {
     position: relative;
-    z-index: 1;
     color: var(--white);
     font-size: clamp(1.15rem, 2vw, 1.5rem);
     font-weight: 700;
     letter-spacing: 0.03em;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.class-box:hover::before,
+.class-box:focus-within::before {
+    transform: scale(1);
+}
+
+.class-box:hover::after,
+.class-box:focus-within::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.class-box:hover span,
+.class-box:focus-within span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (hover: none) {
+    .class-box::before {
+        transform: scale(1);
+    }
+
+    .class-box::after {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .class-box span {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (min-width: 900px) {
@@ -559,5 +603,131 @@ body {
     .membership-cards {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
+    }
+}
+
+/* footer */
+.site-footer {
+    padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 3rem);
+    background:
+        radial-gradient(circle at top right, rgba(119, 199, 109, 0.18), transparent 28%),
+        linear-gradient(135deg, hsl(207, 76%, 20%), hsl(207, 70%, 12%));
+    color: var(--white);
+}
+
+.footer-container {
+    width: min(100%, 72rem);
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.footer-brand {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.footer-logo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: fit-content;
+    padding: 0.8rem 1.15rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(240, 247, 255, 0.88));
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border-radius: 0.35rem 1.1rem 0.35rem 1.1rem;
+    box-shadow: 0 10px 22px rgba(7, 28, 48, 0.22);
+    overflow: hidden;
+}
+
+.footer-logo::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.45rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+    opacity: 0.9;
+}
+
+.footer-logo::after {
+    content: "";
+    position: absolute;
+    inset: auto -12% -38% auto;
+    width: 3.25rem;
+    height: 3.25rem;
+    background: rgba(16, 84, 139, 0.1);
+    border-radius: 50%;
+}
+
+.footer-logo span {
+    color: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-brand p {
+    max-width: 36rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.85rem;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    transform: translateY(-3px);
+    background: rgba(119, 199, 109, 0.16);
+    border-color: rgba(119, 199, 109, 0.5);
+    outline: none;
+}
+
+.footer-links i {
+    font-size: 1.1rem;
+}
+
+.footer-copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 1rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+@media (min-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: center;
+    }
+
+    .footer-copy {
+        grid-column: 1 / -1;
     }
 }
