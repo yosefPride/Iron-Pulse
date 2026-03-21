@@ -17,7 +17,7 @@ A responsive gym website landing page built with HTML and CSS.
 
 ## How To Use
 
-Open `index.html` in a browser to view the project.
+Open (https://yosefpride.github.io/Iron-Pulse/) in a browser to view the project.
 
 ## Notes
 
