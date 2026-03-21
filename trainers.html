@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    
+    <header class="site-header">
+        <a href="index.html" class="logo">
+            Iron-
+            <span>Pulse</span>
+        </a>
+
+        <button class="ham-menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="off-screen-menu" id="site-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="memberships.html">Memberships</a></li>
+                <li><a class="current-page" href="trainers.html">Trainers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">Iron-<span>Pulse</span></a>
+                <p>Train stronger, move better, and stay consistent with classes, coaching, and a gym community built to push you forward.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a href="#" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <p class="footer-copy">&copy; 2026 Iron-Pulse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+
+        hamMenu.addEventListener('click', () => {
+            const isActive = hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+            hamMenu.setAttribute('aria-expanded', String(isActive));
+            hamMenu.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
+        });
+    </script>
+
+</body>
+</html>
