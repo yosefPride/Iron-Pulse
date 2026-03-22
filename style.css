@@ -454,7 +454,9 @@ body {
 @media (min-width: 900px) {
     .classes-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: repeat(3, minmax(10rem, 1fr));
+        height: clamp(34rem, 68vh, 46rem);
+        max-height: 88vh;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
         grid-template-areas:
             "box-1 box-2 box-2"
             "box-1 box-3 box-4"
