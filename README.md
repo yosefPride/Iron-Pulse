@@ -10,11 +10,6 @@ A responsive gym website landing page built with HTML and CSS.
 - Membership plans with different card styles
 - Font Awesome icons for visual details
 
-## Files
-
-- `index.html` - main page structure
-- `style.css` - page styling and responsive layout
-
 ## How To Use
 
 Open (https://yosefpride.github.io/Iron-Pulse/) in a browser to view the project.
