@@ -6,6 +6,7 @@
     <title>Iron-Pulse | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
 
@@ -128,17 +129,5 @@
             <p class="footer-copy">&copy; 2026 Iron-Pulse. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        const hamMenu = document.querySelector('.ham-menu');
-        const offScreenMenu = document.querySelector('.off-screen-menu');
-
-        hamMenu.addEventListener('click', () => {
-            const isActive = hamMenu.classList.toggle('active');
-            offScreenMenu.classList.toggle('active');
-            hamMenu.setAttribute('aria-expanded', String(isActive));
-            hamMenu.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
-        });
-    </script>
 </body>
 </html>
